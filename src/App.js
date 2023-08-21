@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import './styles/App.css';
 import NucampLogo from './app/assets/img/logo.png';
 import { Container, Navbar, NavbarBrand } from 'reactstrap';
 
