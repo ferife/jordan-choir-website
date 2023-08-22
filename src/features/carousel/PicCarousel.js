@@ -71,7 +71,7 @@ function Example(props) {
     });
 
     return (
-        <div>
+        <>
             <style>
                 {`.custom-tag {
                     max-width: 100%;
@@ -97,7 +97,7 @@ function Example(props) {
                     onClickHandler={next}
                 />
             </Carousel>
-        </div>
+        </>
     );
 }
 
