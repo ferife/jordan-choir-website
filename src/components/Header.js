@@ -1,6 +1,7 @@
 import { Collapse, Nav, NavItem, NavLink, Navbar, NavbarBrand, NavbarToggler } from "reactstrap";
 import NucampLogo from '../app/assets/img/logo.png';
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -16,17 +17,17 @@ const Header = () => {
                 <Nav className="ms-auto" navbar>
                     <NavItem>
                         <NavLink className="nav-link" to=''>
-                            <i className='fa fa-home fa-lg' /> Home
+                            <Link to=''><i className='fa fa-home fa-lg' /> Home</Link>
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink className="nav-link" to='/shop'>
-                            <i className='fa fa-shopping-bag fa-lg' /> Shop
+                        <NavLink className="nav-link" to='/#/shop'>
+                            <Link to='/shop'><i className='fa fa-shopping-bag fa-lg' /> Shop</Link>
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink className="nav-link" to='/calendar'>
-                            <i className='fa fa-calendar-o fa-lg' /> Calendar
+                        <NavLink className="nav-link" to='/#/calendar'>
+                            <Link to='/calendar'><i className='fa fa-calendar-o fa-lg' /> Calendar</Link>
                         </NavLink>
                     </NavItem>
                 </Nav>

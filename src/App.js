@@ -13,7 +13,7 @@ function App() {
         <div className="App">
             <Header />
             <Routes>
-                <Route path='' element={<HomePage />} /> {/* For routes to work in GH pages, the "root" route path has to be '' instead of '/' */}
+                <Route path='/' element={<HomePage />} />
                 <Route path='/shop' element={<ShopPage />} />
                 <Route path='/calendar' element={<CalendarPage />} />
             </Routes>

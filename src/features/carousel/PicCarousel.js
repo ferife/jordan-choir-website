@@ -79,7 +79,7 @@ function Example(props) {
                     background: black;
                 }`}
             </style>
-            <Carousel activeIndex={activeIndex} next={next} previous={previous} slide={false} fade={true}>
+            <Carousel activeIndex={activeIndex} next={next} previous={previous} slide={false}>
                 <CarouselIndicators
                     items={items}
                     activeIndex={activeIndex}

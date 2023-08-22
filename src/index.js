@@ -10,7 +10,7 @@ import 'bootstrap-social/bootstrap-social.css';
 import 'font-awesome/css/font-awesome.css';
 import 'typeface-lobster';
 import 'typeface-open-sans';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -18,9 +18,9 @@ const root = createRoot(container);
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}> {/* The specific basename given here ensures that BrowserRouter works on GitHub Pages */}
+            <HashRouter basename=''>
                 <App />
-            </BrowserRouter>
+            </HashRouter>
         </Provider>
     </React.StrictMode>
 );
