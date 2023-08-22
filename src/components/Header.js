@@ -5,7 +5,8 @@ const Header = () => {
     return (
         <Navbar dark color='primary' sticky='top' expand='md'>
             <NavbarBrand href='/'>
-                <img src={NucampLogo} alt='nucamp logo' />
+                <img src={NucampLogo} alt='nucamp logo' className="float-start" />
+                <h1>Jordan Choir</h1>
             </NavbarBrand>
         </Navbar>
     );
