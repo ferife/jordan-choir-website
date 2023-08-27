@@ -1,9 +1,16 @@
+import { Button, Container } from "reactstrap"
+import ProductsList from "../features/shop/ProductsList";
+import SubHeader from "../components/SubHeader";
+
 const ShopPage = () => {
-    // TODO: Shop Page
+    // TODO: Let to have a "from" price. For example, donations can be "from (minPrice)"
+    // TODO: Add shopping cart function
     return (
-        <>
-        Shop
-        </>
+        <Container>
+            <SubHeader current='Shop' />
+            <Button>Cart</Button>
+            <ProductsList />
+        </Container>
     );
 };
 
