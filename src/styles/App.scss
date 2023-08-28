@@ -4,6 +4,7 @@ $color-pale: #cec8ff;
 $color-mid: #901cad;
 $color-dark: #60106b;
 $color-black-transparent: rgba(0, 0, 0, 0.5);
+$color-jordan-gold: #d1b786;
 
 $body-font: "Open Sans", sans-serif;
 $header-font: "Lobster", cursive;
@@ -59,7 +60,7 @@ h2 {
 
 .navbar-dark {
   background-color: $color-mid;
-  background-image: linear-gradient(to right, $color-secondary, $color-primary, $color-dark);
+  background-image: linear-gradient(to right, black, $color-jordan-gold);
   margin-bottom: 2rem;
   min-height: 8rem;
 }

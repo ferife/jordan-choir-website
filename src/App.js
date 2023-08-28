@@ -12,6 +12,7 @@ import ProductDetailPage from './pages/ProductDetailPage';
 function App() {
     // TODO: About Us page(s)
     // TODO: (maybe) Contact Us Page. With form to submit feedback
+    // TODO: GitHub.io does not allow for local storage, which means the shopping cart will not work. Look into using web hosting services such as Google FireBase
     return (
         <div className="App">
             <Header />

@@ -4,9 +4,9 @@ import { Button, Container, Row } from "reactstrap";
 import ProductDetail from "../features/shop/ProductDetail";
 import SubHeader from "../components/SubHeader";
 import { useSelector } from "react-redux";
+import AddToCartForm from "../features/shop/AddToCartForm";
 
 const ProductDetailPage = () => {
-    // TODO: Set Special formats for selling clothes vs merch items (such as pop sockets) vs donations
     const { productId } = useParams();
     const product = useSelector(selectProductById(productId));
     console.log('product: ', product);
@@ -14,9 +14,10 @@ const ProductDetailPage = () => {
     return (
         <Container>
             <SubHeader current={product.name} detail={true} />
-            <Button>Cart</Button>
+            <Button> <i className='fa fa-shopping-cart' /> Cart</Button>
             <Row>
                 <ProductDetail product={product} />
+                <AddToCartForm product={product} />
             </Row>
         </Container>
     );

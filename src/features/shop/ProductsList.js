@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const ProductsList = () => {
     const products = useSelector(selectAllProducts);
-    console.log('products: ', products)
+    // console.log('products: ', products);
     return (
         <Row className="ms-auto">
             {products.map((product) => {

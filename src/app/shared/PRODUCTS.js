@@ -42,7 +42,7 @@ export const PRODUCTS = [
             { id: 2, name: 'Gold', price: 500 },
             { id: 3, name: 'Platinum', price: 1000 },
         ],
-        price: 29.01,
+        price: 100,
         description:
             'Let NuCamp be your guide to this off-the-beaten-path, hike-in-only campground.'
     },
