@@ -20,6 +20,7 @@
         "react-spring": "^9.4.5-beta.1",
         "reactstrap": "^9.0.1",
         "redux-logger": "^3.0.6",
+        "redux-persist": "^6.0.0",
         "sass": "^1.66.1",
         "typeface-lobster": "^1.1.13",
         "typeface-open-sans": "^1.1.13",

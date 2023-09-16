@@ -18,6 +18,7 @@ const root = createRoot(container);
 root.render(
     <React.StrictMode>
         <Provider store={store}>
+            {/* TODO: Go back to BrowserRouter, since I'm not using GitHub Pages */}
             <HashRouter basename=''>
                 <App />
             </HashRouter>

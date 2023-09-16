@@ -8,11 +8,14 @@ import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
 import CalendarPage from './pages/CalendarPage';
 import ProductDetailPage from './pages/ProductDetailPage';
+import CartPage from './pages/CartPage';
 
 function App() {
     // TODO: About Us page(s)
     // TODO: (maybe) Contact Us Page. With form to submit feedback
     // TODO: GitHub.io does not allow for local storage, which means the shopping cart will not work. Look into using web hosting services such as Google FireBase
+    // TODO: Create the ability for an administrator user to log in to change the content on the site.
+    // TODO: Make sure the entire website looks good on phones and tablets, not just desktops
     return (
         <div className="App">
             <Header />
@@ -23,9 +26,9 @@ function App() {
                     path='/shop/:productId'
                     element={<ProductDetailPage />}
                 />
+                <Route path='/shop/cart' element={<CartPage />} />
                 <Route path='/calendar' element={<CalendarPage />} />
             </Routes>
-            {/* I'm ready for workshop */}
             <Footer />
         </div>
     );

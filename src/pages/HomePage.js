@@ -4,7 +4,6 @@ import SubHeader from '../components/SubHeader';
 
 const HomePage = () => {
     // TODO: Add News section
-    // FIXME: PicCarousel
     return (
         <Container>
             <SubHeader current='Home' />

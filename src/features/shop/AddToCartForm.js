@@ -2,21 +2,38 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { Button, Col, FormGroup, InputGroup, Label } from "reactstrap";
 import { validateAddToCartForm } from "../../utils/validateAddToCartForm";
+import { useDispatch } from "react-redux";
+import { addCartItem } from "../cart/cartItemsSlice";
 
 const AddToCartForm = ({ product }) => {
+
+    const dispatch = useDispatch();
+
+    // TODO: If the user is trying to add something to the cart that is identical (including all options) to something already in the cart, either do not allow them or just modify the quantity of the existing item accordingly
     const handleSubmit = (values, { resetForm }) => {
-        console.log('The form has been submitted');
-        console.log('form values:', values);
-        console.log('in JSON format', JSON.stringify(values));
-        resetForm();
+        // console.log('The form has been submitted');
+        // console.log('form values:', values);
+        // console.log('in JSON format', JSON.stringify(values));
+        const cartItem = {
+            id: crypto.randomUUID(),
+            productId: parseInt(product.id),
+            price: (product.tiers ? product.tiers.find((tier) => tier.id === parseInt(values.tier)) : product.price),
+            size: values.size,
+            color: values.color,
+            tier: values.tier,
+            quantity: values.quantity,
+            dateTimeAdded: new Date(Date.now()).toISOString()
+        }
+        // console.log(cartItem);
+        dispatch(addCartItem(cartItem));
     };
     return (
         <Col >
             <Formik
                 initialValues={{
-                    size: (product.sizes ? 'Not Selected' : 'Not Required'),
-                    color: (product.colors ? 'Not Selected' : 'Not Required'),
-                    tier: (product.tiers ? 'Not Selected' : 'Not Required'),
+                    size: (product.sizes ? 'Not Selected' : 'N/A'),
+                    color: (product.colors ? 'Not Selected' : 'N/A'),
+                    tier: (product.tiers ? 'Not Selected' : 'N/A'),
                     quantity: (!product.tiers ? 1 : 0)
                 }}
                 onSubmit={handleSubmit}
@@ -78,6 +95,8 @@ const AddToCartForm = ({ product }) => {
                         )}
                     </FormGroup>
                     <FormGroup row>
+                        {/* TODO: Allow some products with tiers to change quantity (ex: reagan choir mums) */}
+                        {/* TODO: Create Modal for the Sponsorships to allow for entering in the info required to make the sponsorship happen */}
                         {!product.tiers && (
                             <InputGroup>
                                 <Label htmlFor="quantity" md='2'>Quantity</Label>
@@ -89,8 +108,7 @@ const AddToCartForm = ({ product }) => {
                     </FormGroup>
                     <FormGroup row>
                         <Col md={{ size: 10, offset: 2 }}>
-                            {/* TODO: Add functionality to "Add to Cart" button */}
-                            <Button type='submit' color='primary' onClick={console.log('Button Pressed')}>
+                            <Button type='submit' color='primary'>
                                 Add to Cart
                             </Button>
                         </Col>
