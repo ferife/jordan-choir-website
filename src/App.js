@@ -2,7 +2,6 @@ import React from 'react';
 import './styles/App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-// import PicCarousel from './features/carousel/PicCarousel';
 import { Route, Routes } from 'react-router';
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
