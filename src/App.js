@@ -9,6 +9,7 @@ import ShopPage from './pages/ShopPage';
 import CalendarPage from './pages/CalendarPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import CartPage from './pages/CartPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
     // TODO: About Us page(s)
@@ -28,6 +29,10 @@ function App() {
                 />
                 <Route path='/shop/cart' element={<CartPage />} />
                 <Route path='/calendar' element={<CalendarPage />} />
+
+
+
+                <Route path='/*' element={<NotFoundPage />} /> {/* KEEP THIS ROUTE AT THE BOTTOM */}
             </Routes>
             <Footer />
         </div>
