@@ -6,7 +6,7 @@ export const validateAddToCartForm = (values) => {
         if (values.modifiers[mod] === 'Not Selected') errorMods[mod] = 'Required';
     }
 
-    if ( Object.keys(errorMods).length > 0) {
+    if (Object.keys(errorMods).length > 0) {
         errors['modifiers'] = errorMods;
     }
 

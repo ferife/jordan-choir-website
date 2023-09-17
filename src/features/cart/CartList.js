@@ -1,12 +1,17 @@
-import { useSelector } from "react-redux";
-import { selectAllCartItems } from "./cartItemsSlice";
-import { Container } from "reactstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart, selectAllCartItems } from "./cartItemsSlice";
+import { Button, Container } from "reactstrap";
 import CartItem from "./CartItem";
 
-// TODO: CartList
 const CartList = () => {
+    const dispatch = useDispatch();
+
     const cartItems = useSelector(selectAllCartItems);
-    console.log('cartItems: ', cartItems);
+
+    const handleClearCart = () => {
+        dispatch(clearCart());
+    };
+
     return (
         <Container>
             {cartItems.map((cartItem) => {
@@ -14,7 +19,8 @@ const CartList = () => {
                     <CartItem item={cartItem} />
                 );
             })}
-            {/* TODO: Calculate Total Price */}
+            <Button onClick={() => handleClearCart()}>Clear Cart</Button>
+            {/* TODO: Calculate Subtotal Price (add message "taxes calculated at checkout") */}
         </Container>
     );
 };
