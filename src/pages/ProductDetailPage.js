@@ -10,7 +10,6 @@ import ToCartButton from "../features/cart/ToCartButton";
 const ProductDetailPage = () => {
     const { productId } = useParams();
     const product = useSelector(selectProductById(productId));
-    // console.log('product: ', product);
     
     return (
         <Container>

@@ -4,7 +4,8 @@ import { formatPrice } from "../../utils/formatPrice";
 
 
 const ProductCard = ({ product }) => {
-    const { id, image, name, price, tiers } = product;
+    const { id, image, name, price, tiers} = product;
+
     return (
         <Link to={`${id}`}>
             <Card>
@@ -12,9 +13,12 @@ const ProductCard = ({ product }) => {
                 <CardBody>
                     <CardTitle>{name}</CardTitle>
                     {tiers && (
-                        <CardSubtitle>from {formatPrice(price)}</CardSubtitle> // TODO: Calculate the price of the cheapest tier and put it here
+                        <CardSubtitle></CardSubtitle>
                     )}
-                    {!tiers && (
+                    {tiers && (
+                        <CardSubtitle>from {formatPrice(tiers.reduce(function(cheapestTier, tier) {return tier.price < cheapestTier.price ? tier : cheapestTier}, tiers[0]).price)}</CardSubtitle>
+                    )}
+                    {price && (
                         <CardSubtitle>{formatPrice(price)}</CardSubtitle>
                     )}
                 </CardBody>
