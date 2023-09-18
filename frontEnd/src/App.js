@@ -20,7 +20,7 @@ function App() {
         <div className="App">
             <Header />
             <Routes>
-                <Route path='/' element={<HomePage />} />
+                <Route path='' element={<HomePage />} />
                 <Route path='/shop' element={<ShopPage />} />
                 <Route 
                     path='/shop/:productId'
@@ -31,6 +31,7 @@ function App() {
 
 
 
+                <Route path='/not-found' element={<NotFoundPage />} />
                 <Route path='/*' element={<NotFoundPage />} /> {/* KEEP THIS ROUTE AT THE BOTTOM */}
             </Routes>
             <Footer />
