@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import { productsFetch, productsReducer } from '../features/shop/productsSlice';
-import { cartItemsReducer } from '../features/cart/cartItemsSlice';
+import { cartItemsReducer, getTotals } from '../features/cart/cartItemsSlice';
 
 export const store = configureStore({
     reducer: {
@@ -11,4 +11,5 @@ export const store = configureStore({
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([logger])
 });
 
-store.dispatch(productsFetch());
+// store.dispatch(productsFetch());
+store.dispatch(getTotals());

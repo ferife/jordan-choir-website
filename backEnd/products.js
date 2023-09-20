@@ -1,14 +1,14 @@
 // TODO: Add back images for this
-const reactLakeImg = "http://localhost:5000/assets/img/react-lake.jpg";
-const chromeRiverImg = "http://localhost:5000/assets/img/chrome-river.jpg";
-const breadCrumbImg = "http://localhost:5000/assets/img/breadcrumb-trail.jpg";
-const reduxWoodsImg = "http://localhost:5000/assets/img/redux-woods.jpg";
+// const reactLakeImg = "http://localhost:5000/assets/img/react-lake.jpg";
+// const chromeRiverImg = "http://localhost:5000/assets/img/chrome-river.jpg";
+// const breadCrumbImg = "http://localhost:5000/assets/img/breadcrumb-trail.jpg";
+// const reduxWoodsImg = "http://localhost:5000/assets/img/redux-woods.jpg";
 
 const products = [
     {
         id: 0,
         name: "React Lake T-Shirt",
-        image: reactLakeImg,
+        // image: reactLakeImg,
         modifiers: [
             {   // Sizes
                 id: 0,
@@ -37,7 +37,7 @@ const products = [
     {
         id: 1,
         name: "Chrome River Mug",
-        image: chromeRiverImg,
+        // image: chromeRiverImg,
         price: 8.0,
         description:
             "Spend a few sunny days and starry nights beneath a canopy of old-growth firs at this enchanting spot by the Chrome River.",
@@ -45,7 +45,7 @@ const products = [
     {
         id: 2,
         name: "Breadcrumb Trail Sponsorships",
-        image: breadCrumbImg,
+        // image: breadCrumbImg,
         donation: true,
         tiers: [
             { id: 0, name: "Bronze", price: 100.0 },
@@ -58,7 +58,7 @@ const products = [
     {
         id: 3,
         name: "Redux Woods Pants",
-        image: reduxWoodsImg,
+        // image: reduxWoodsImg,
         modifiers: [
             {   // Sizes
                 id: 0,

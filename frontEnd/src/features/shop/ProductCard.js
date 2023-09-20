@@ -13,9 +13,6 @@ const ProductCard = ({ product }) => {
                 <CardBody>
                     <CardTitle>{name}</CardTitle>
                     {tiers && (
-                        <CardSubtitle></CardSubtitle>
-                    )}
-                    {tiers && (
                         <CardSubtitle>from {formatPrice(tiers.reduce(function(cheapestTier, tier) {return tier.price < cheapestTier.price ? tier : cheapestTier}, tiers[0]).price)}</CardSubtitle>
                     )}
                     {price && (

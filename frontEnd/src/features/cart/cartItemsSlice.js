@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 // TODO: Figure out how to persist state through refresh
 
 const initialState = {
-    cartItems: []
+    cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
 };
 
 const cartItemsSlice = createSlice({
@@ -17,13 +18,17 @@ const cartItemsSlice = createSlice({
                 id: state.cartItems.length + 1,
                 ...action.payload
             };
+            toast.info('Item added to cart', { position: 'bottom-left' });
             state.cartItems.push(newItem);
+
+            localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
         },
         removeCartItem: (state, action) => {
             console.log('addCartItem action.payload: ', action.payload);
             console.log('addCartItem state.cartItems: ', state.cartItems);
             const { id } = action.payload;
             state.cartItems = state.cartItems.filter(item => item.id !== id);
+            localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
         },
         decreaseCartItemQuantity: (state, action) => {
             console.log('addCartItem action.payload: ', action.payload);
@@ -39,6 +44,7 @@ const cartItemsSlice = createSlice({
                 const { id } = action.payload;
                 state.cartItems = state.cartItems.filter(thisItem => thisItem.id !== id);
             }
+            localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
         },
         increaseCartItemQuantity: (state, action) => {
             console.log('addCartItem action.payload: ', action.payload);
@@ -50,19 +56,41 @@ const cartItemsSlice = createSlice({
             const item = state.cartItems[itemIndex];
 
             item.quantity += 1;
+            localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
         },
         clearCart: (state, action) => {
             console.log('addCartItem action.payload: ', action.payload);
             console.log('addCartItem state.cartItems: ', state.cartItems);
             state.cartItems = [];
             console.log('Empty Cart: ', state.cartItems);
+            localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
+        },
+        getTotals: (state, action) => {
+            let { total, quantity } = state.cartItems.reduce(
+                (acc, cur) => {
+                    const { price, quantity } = cur;
+                    const itemTotal = price * quantity;
+
+                    acc.total += itemTotal;
+                    acc.quantity += quantity;
+
+                    return acc;
+                },
+                {
+                    total: 0,
+                    quantity: 0,
+                }
+            );
+
+            state.cartTotalQuantity = quantity;
+            state.cartTotalPrice = total;
         },
     }
 });
 
 export const cartItemsReducer = cartItemsSlice.reducer;
 
-export const { addCartItem, removeCartItem, decreaseCartItemQuantity, increaseCartItemQuantity, clearCart } = cartItemsSlice.actions;
+export const { addCartItem, removeCartItem, decreaseCartItemQuantity, increaseCartItemQuantity, clearCart, getTotals } = cartItemsSlice.actions;
 
 export const selectAllCartItems = (state) => {
     return state.cartItems.cartItems;

@@ -1,12 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, selectAllCartItems } from "./cartItemsSlice";
+import { clearCart, getTotals, selectAllCartItems } from "./cartItemsSlice";
 import { Button, Container } from "reactstrap";
 import CartItem from "./CartItem";
+import { useEffect } from "react";
 
 const CartList = () => {
     const dispatch = useDispatch();
 
     const cartItems = useSelector(selectAllCartItems);
+
+    useEffect(() => {
+        dispatch(getTotals());
+    }, [cartItems]);
 
     const handleClearCart = () => {
         dispatch(clearCart());

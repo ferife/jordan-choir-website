@@ -31,7 +31,7 @@ const items = [
     },
 ];
 
-function Example(props) {
+const Example = (props) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
 
