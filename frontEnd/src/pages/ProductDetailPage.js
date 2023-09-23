@@ -4,13 +4,13 @@ import { Container, Row } from "reactstrap";
 import ProductDetail from "../features/shop/ProductDetail";
 import SubHeader from "../components/SubHeader";
 import { useSelector } from "react-redux";
-import AddToCartForm from "../features/shop/AddToCartForm";
+import AddToCartForm from "../features/cart/AddToCartForm";
 import ToCartButton from "../features/cart/ToCartButton";
 
 const ProductDetailPage = () => {
     const { productId } = useParams();
     const product = useSelector(selectProductById(productId));
-    
+
     return (
         <Container>
             <SubHeader current={product.name} detail={true} />

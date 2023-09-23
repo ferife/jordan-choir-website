@@ -8,7 +8,9 @@ const ProductRadio = ({ options }) => {
         <>
             <ButtonGroup vertical={options[0].price}>
                 {options.map((option) => {
-                    const addPriceToButton = option.price ? '$' + option.price + ' - ' : '';
+                    const addPriceToButton = option.price 
+                        ? '$' + option.price + ' - ' 
+                        : '';
                     return (
                         <Button onClick={() => setActiveId(option.id)} active={activeId === option.id}>
                             {addPriceToButton + option.name}

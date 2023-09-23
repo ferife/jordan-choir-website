@@ -55,7 +55,7 @@ const productsSlice = createSlice({
 export const productsReducer = productsSlice.reducer;
 
 export const selectAllProducts = (state) => {
-    console.log('selectAllProducts: ', state)
+    // console.log('selectAllProducts: ', state)
     return state.products.items;
 };
 

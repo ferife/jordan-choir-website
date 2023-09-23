@@ -3,13 +3,15 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { Button, Col, FormGroup, InputGroup, Label } from "reactstrap";
 import { validateAddToCartForm } from "../../utils/validateAddToCartForm";
 import { useDispatch } from "react-redux";
-import { addCartItem } from "../cart/cartItemsSlice";
+import { addCartItem } from "./cartItemsSlice";
 import { formatPrice } from "../../utils/formatPrice";
 
-function initialMods (prod) {
+function initialMods(prod) {
 
     const initMods = {
-        quantity: prod.donation ? 0 : 1,
+        quantity: prod.donation 
+            ? 0 
+            : 1,
         modifiers: {}
     };
 
@@ -28,16 +30,22 @@ const AddToCartForm = ({ product }) => {
     const dispatch = useDispatch();
 
     const handleSubmit = (values) => {
-
         const cartItem = {
             id: crypto.randomUUID(),
             productId: parseInt(product.id),
-            price: (product.tiers ? product.tiers.find((tier) => tier.id === parseInt(values.tier)) : product.price),
+            price: (product.tiers 
+                ? product.tiers.find((tier) => tier.name === values.tier).price 
+                : product.price
+            ),
             dateTimeAdded: new Date(Date.now()).toISOString(),
-            quantity: values.quantity, 
-            modifiers: values.modifiers
+            quantity: values.quantity,
+            modifiers: values.modifiers,
+            tier: (product.tiers 
+                ? values.tier 
+                : false
+            ),
+            donation: product.donation
         }
-
         dispatch(addCartItem(cartItem));
     };
 
@@ -89,57 +97,6 @@ const AddToCartForm = ({ product }) => {
                                 </Col>
                             </>
                         )}
-                        {/* {product.sizes && (
-                            <Col md='4'>
-                                <InputGroup>
-                                    <Field className='form-control' name='size' as='select'>
-                                        <option key={crypto.randomUUID()} value='Not Selected'>Select Size</option>
-                                        {product.sizes.map((option) => {
-                                            return (
-                                                <option key={crypto.randomUUID()} value={option.name}>{option.name}</option>
-                                            );
-                                        })}
-                                    </Field>
-                                    <ErrorMessage name='size'>
-                                        {(msg) => <p className="text-danger">{msg}</p>}
-                                    </ErrorMessage>
-                                </InputGroup>
-                            </Col>
-                        )}
-                        {product.colors && (
-                            <Col md='4'>
-                                <InputGroup>
-                                    <Field className='form-control' name='color' as='select'>
-                                        <option key={crypto.randomUUID()} value='Not Selected'>Select Color</option>
-                                        {product.colors.map((option) => {
-                                            return (
-                                                <option key={crypto.randomUUID()} value={option.name}>{option.name}</option>
-                                            );
-                                        })}
-                                    </Field>
-                                    <ErrorMessage name='color'>
-                                        {(msg) => <p className="text-danger">{msg}</p>}
-                                    </ErrorMessage>
-                                </InputGroup>
-                            </Col>
-                        )}
-                        {product.tiers && (
-                            <Col md='4'>
-                                <InputGroup>
-                                    <Field className='form-control' name='tier' as='select'>
-                                        <option key={crypto.randomUUID()} value='Not Selected'>Select Tier</option>
-                                        {product.tiers.map((option) => {
-                                            return (
-                                                <option key={crypto.randomUUID()} value={option.name}>{'$' + option.price + ' - ' + option.name}</option>
-                                            );
-                                        })}
-                                    </Field>
-                                    <ErrorMessage name='tier'>
-                                        {(msg) => <p className="text-danger">{msg}</p>}
-                                    </ErrorMessage>
-                                </InputGroup>
-                            </Col>
-                        )} */}
                     </FormGroup>
                     <FormGroup row>
                         {/* TODO: Allow some products with tiers to change quantity (ex: reagan choir mums) */}

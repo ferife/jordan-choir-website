@@ -4,7 +4,11 @@ import { toast } from "react-toastify";
 // TODO: Figure out how to persist state through refresh
 
 const initialState = {
-    cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
+    cartItems: localStorage.getItem('cartItems')
+        ? JSON.parse(localStorage.getItem('cartItems'))
+        : [],
+    cartTotalQuantity: 0,
+    cartTotalPrice: 0.0,
 };
 
 const cartItemsSlice = createSlice({
@@ -68,29 +72,43 @@ const cartItemsSlice = createSlice({
         getTotals: (state, action) => {
             let { total, quantity } = state.cartItems.reduce(
                 (acc, cur) => {
-                    const { price, quantity } = cur;
-                    const itemTotal = price * quantity;
+                    const { price, quantity, donation } = cur;
+                        console.log('donation', donation);
+
+                    const itemTotal = (donation
+                        ? price
+                        : price * quantity);
 
                     acc.total += itemTotal;
-                    acc.quantity += quantity;
+                    acc.quantity += (donation
+                        ? 1
+                        : quantity);
 
                     return acc;
                 },
                 {
-                    total: 0,
+                    total: 0.0,
                     quantity: 0,
                 }
             );
 
             state.cartTotalQuantity = quantity;
             state.cartTotalPrice = total;
+
         },
     }
 });
 
 export const cartItemsReducer = cartItemsSlice.reducer;
 
-export const { addCartItem, removeCartItem, decreaseCartItemQuantity, increaseCartItemQuantity, clearCart, getTotals } = cartItemsSlice.actions;
+export const {
+    addCartItem,
+    removeCartItem,
+    decreaseCartItemQuantity,
+    increaseCartItemQuantity,
+    clearCart,
+    getTotals
+} = cartItemsSlice.actions;
 
 export const selectAllCartItems = (state) => {
     return state.cartItems.cartItems;
