@@ -7,10 +7,10 @@ const ProductsList = () => {
     const products = useSelector(selectAllProducts);
     console.log('products: ', products);
     return (
-        <Row className="ms-auto">
+        <Row className="ms-auto d-flex justify-content-center">
             {products.map((product) => {
                 return (
-                    <Col md='5' className="m-4" key={product.id}>
+                    <Col xs='12' sm='5' lg='3' className="m-4" key={product.id}>
                         <ProductCard product={product} />
                     </Col>
                 );

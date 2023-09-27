@@ -25,8 +25,6 @@ function initialMods(prod) {
 
 const AddToCartForm = ({ product }) => {
 
-    // TODO: If the user is trying to add something to the cart that is identical (including all options) to something already in the cart, either do not allow them or just modify the quantity of the existing item accordingly
-
     const dispatch = useDispatch();
 
     const handleSubmit = (values) => {
@@ -99,8 +97,6 @@ const AddToCartForm = ({ product }) => {
                         )}
                     </FormGroup>
                     <FormGroup row>
-                        {/* TODO: Allow some products with tiers to change quantity (ex: reagan choir mums) */}
-                        {/* TODO: Create Modal for the Sponsorships to allow for entering in the info required to make the sponsorship happen */}
                         {!product.donation && (
                             <InputGroup>
                                 <Label htmlFor="quantity" md='2'>Quantity</Label>

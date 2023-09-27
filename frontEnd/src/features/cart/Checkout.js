@@ -13,17 +13,22 @@ const Checkout = () => {
     }, [cartItems]);
 
     return (
-        <Card>
+        <Card className='m-1'>
             <CardTitle>
                 <Container>
                     <Row>
-                        <Col>SubTotal</Col>
+                        <Col className="text-end">SubTotal</Col>
                         <Col>{formatPrice(cartItems.cartTotalPrice)}</Col>
+                    </Row>
+                    <Row>
+                        <Col></Col>
+                        <Col>Taxes and other fees calculated at checkout</Col>
                     </Row>
                 </Container>
             </CardTitle>
         </Card>
     );
 };
+
 
 export default Checkout;

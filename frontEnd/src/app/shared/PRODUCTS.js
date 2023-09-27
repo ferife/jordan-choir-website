@@ -1,50 +1,82 @@
-import reactLakeImg from '../assets/img/react-lake.jpg';
-import chromeRiverImg from '../assets/img/chrome-river.jpg';
-import breadCrumbImg from '../assets/img/breadcrumb-trail.jpg';
-import reduxWoodsImg from '../assets/img/redux-woods.jpg';
+import choirProudTshirt from '../assets/img/product-tshirt.jpg';
+import warriorChoirSweatshirt from '../assets/img/product-sweatshirt.jpg';
+import choirProudHoodie from '../assets/img/product-hoodie.jpg';
+import choirYardSign from '../assets/img/product-yard-sign.jpg';
 
 export const PRODUCTS = [
-    {
+    {   // TShirt
         id: 0,
-        name: 'React Lake T-Shirt',
-        image: reactLakeImg,
+        name: 'Choir Proud Black T-Shirt',
+        image: choirProudTshirt,
         modifiers: [
             {   // Sizes
                 id: 0,
                 name: 'size',
                 options: [
                     { id: 0, name: 'XS' },
-                    { id: 1, name: 'Small' },
-                    { id: 2, name: 'Medium' },
-                    { id: 3, name: 'Large' },
+                    { id: 1, name: 'S' },
+                    { id: 2, name: 'M' },
+                    { id: 3, name: 'L' },
                     { id: 4, name: 'XL' },
-                ],
-            },
-            {   // Colors
-                id: 1,
-                name: 'color',
-                options: [
-                    { id: 0, name: 'Black' },
-                    { id: 1, name: 'White' },
-                    { id: 2, name: 'Gold' },
+                    { id: 5, name: '2XL' },
+                    { id: 6, name: '3XL' },
                 ],
             },
         ],
-        price: 12.33,
-        description: 'Nestled in the foothills of the Chrome Mountains, this campground on the shores of the pristine React Lake is a favorite for fly fishers.',
+        price: 20.0,
     },
-    {
+    {   // Sweatshirt
         id: 1,
-        name: 'Chrome River Mug',
-        image: chromeRiverImg,
-        price: 8.77,
-        description:
-            'Spend a few sunny days and starry nights beneath a canopy of old-growth firs at this enchanting spot by the Chrome River.',
+        name: 'Warrior Choir Sweatshirt',
+        image: warriorChoirSweatshirt,
+        modifiers: [
+            {   // Sizes
+                id: 0,
+                name: 'size',
+                options: [
+                    { id: 0, name: 'XS' },
+                    { id: 1, name: 'S' },
+                    { id: 2, name: 'M' },
+                    { id: 3, name: 'L' },
+                    { id: 4, name: 'XL' },
+                    { id: 5, name: '2XL' },
+                    { id: 6, name: '3XL' },
+                ],
+            },
+        ],
+        price: 35.0,
+    },
+    {   // Hoodie
+        id: 2,
+        name: 'Choir Proud Black Hoodie',
+        image: choirProudHoodie,
+        modifiers: [
+            {   // Sizes
+                id: 0,
+                name: 'size',
+                options: [
+                    { id: 0, name: 'XS' },
+                    { id: 1, name: 'S' },
+                    { id: 2, name: 'M' },
+                    { id: 3, name: 'L' },
+                    { id: 4, name: 'XL' },
+                    { id: 5, name: '2XL' },
+                    { id: 6, name: '3XL' },
+                ],
+            },
+        ],
+        price: 40.0,
+    },
+    {   // Yard Sign
+        id: 3,
+        name: 'Jordan Choir Yard Sign',
+        image: choirYardSign,
+        price: 30.0,
     },
     {
-        id: 2,
+        id: 4,
         name: 'Breadcrumb Trail Sponsorships',
-        image: breadCrumbImg,
+        image: choirProudHoodie,
         donation: true,
         tiers: [
             { id: 0, name: 'Bronze', price: 100.0 },
@@ -53,25 +85,5 @@ export const PRODUCTS = [
             { id: 3, name: 'Platinum', price: 1000.0 },
         ],
         description: 'Let NuCamp be your guide to this off-the-beaten-path, hike-in-only campground.',
-    },
-    {
-        id: 3,
-        name: 'Redux Woods Pants',
-        image: reduxWoodsImg,
-        modifiers: [
-            {   // Sizes
-                id: 0,
-                name: 'size',
-                options: [
-                    { id: 0, name: 'XS' },
-                    { id: 1, name: 'Small' },
-                    { id: 2, name: 'Medium' },
-                    { id: 3, name: 'Large' },
-                    { id: 4, name: 'XL' },
-                ],
-            }
-        ],
-        price: 0.42,
-        description: "You'll never want to leave this hidden gem, deep within the lush Redux Woods."
     },
 ];

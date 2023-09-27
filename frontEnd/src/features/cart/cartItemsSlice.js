@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
-// TODO: Figure out how to persist state through refresh
-
 const initialState = {
     cartItems: localStorage.getItem('cartItems')
         ? JSON.parse(localStorage.getItem('cartItems'))

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, getTotals, selectAllCartItems } from "./cartItemsSlice";
-import { Button, Col, Container, Row } from "reactstrap";
+import { clearCart, selectAllCartItems } from "./cartItemsSlice";
+import { Button, Col, Container, Row, Table } from "reactstrap";
 import CartItem from "./CartItem";
 import { useEffect } from "react";
 import Checkout from "./Checkout";
@@ -19,7 +19,7 @@ const CartList = () => {
     };
 
     return (
-        <Container className="table-striped">
+        <Container>
             {cartItems.map((cartItem) => {
                 return (
                     <CartItem item={cartItem} />
@@ -27,13 +27,12 @@ const CartList = () => {
             })}
             <Row>
                 <Col>
-                    <Button onClick={() => handleClearCart()}>Clear Cart</Button>
+                    <Button className="m-1" onClick={() => handleClearCart()}>Clear Cart</Button>
                 </Col>
                 <Col>
                     <Checkout />
                 </Col>
             </Row>
-            {/* TODO: Calculate Subtotal Price (add message "taxes calculated at checkout") */}
         </Container>
     );
 };

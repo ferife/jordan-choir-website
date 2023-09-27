@@ -1,5 +1,5 @@
 import { Collapse, Nav, NavItem, NavLink, Navbar, NavbarBrand, NavbarToggler } from "reactstrap";
-import HelmetLogo from '../app/assets/img/jordanPhotos/jordan-helmet-trans-background.png';
+import HelmetLogo from '../app/assets/img/jordan-helmet-trans-background.png';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,7 @@ const Header = () => {
             <Collapse navbar isOpen={menuOpen}>
                 <Nav className="ms-auto" navbar>
                     <NavItem>
-                        {/* FIXME: Why do the NavLinks by themselves not work?
+                        {/* fixme: Why do the NavLinks by themselves not work?
                             I can't have the NavLinks and the Links at the same time. That causes issues */}
                         {/* <NavLink className="nav-link" to=''> */}
                             <Link to=''>

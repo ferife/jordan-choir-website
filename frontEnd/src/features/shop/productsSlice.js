@@ -7,8 +7,6 @@ const initialState = {
     status: null
 };
 
-// FIXME: Fix product data not working
-
 // export const productsFetch = createAsyncThunk(
 //     "products/productsFetch",
 //     async () => {

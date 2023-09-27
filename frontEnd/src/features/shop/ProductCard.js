@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
     return (
         <Link to={`${id}`}>
             <Card>
-                <CardImg width='100%' src={image} alt={name} />
+                <CardImg src={image} alt={name} />
                 <CardBody>
                     <CardTitle>{name}</CardTitle>
                     {tiers && (

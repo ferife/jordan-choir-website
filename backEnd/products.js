@@ -1,4 +1,3 @@
-// TODO: Add back images for this
 // const reactLakeImg = "http://localhost:5000/assets/img/react-lake.jpg";
 // const chromeRiverImg = "http://localhost:5000/assets/img/chrome-river.jpg";
 // const breadCrumbImg = "http://localhost:5000/assets/img/breadcrumb-trail.jpg";

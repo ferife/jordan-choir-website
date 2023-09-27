@@ -1,11 +1,10 @@
-import { Button, Col, Container, InputGroup, Row } from "reactstrap";
+import { Button, Card, CardImg, Col, Container, InputGroup, Row } from "reactstrap";
 import { decreaseCartItemQuantity, increaseCartItemQuantity, removeCartItem } from "./cartItemsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { formatPrice } from "../../utils/formatPrice";
 import { selectAllProducts } from "../shop/productsSlice";
 
 const CartItem = ({ item }) => {
-    // TODO: Finish CartItem
     // Pieces:
     // Image of item
     // Name of item
@@ -47,23 +46,31 @@ const CartItem = ({ item }) => {
         dispatch(removeCartItem(item));
     };
 
-    const subtotalPrice = products.find(product => product.id === item.productId).donation 
-        ? item.price 
+    const subtotalPrice = products.find(product => product.id === item.productId).donation
+        ? item.price
         : item.price * item.quantity;
 
+    const thisItem = products.find(product => product.id === item.productId);
+
     return (
-        <Row className="ms-auto">
-            {/* <Col>Product Image</Col> */}
-            <Col className="text-center">   {/* Name */}
-                {products.find(product => product.id === item.productId).name}
+        <Row className="ms-auto border-bottom border-dark d-flex align-items-center d-table-row">
+            {thisItem.image && (
+                <Col className="d-none d-md-block" md='2' lg='2' >
+                    <Card outline className="p-0 m-1">
+                        <CardImg className="p-0" alt={thisItem.name} src={thisItem.image} />
+                    </Card>
+                </Col>
+            )}
+            <Col className="">   {/* Name */}
+                {thisItem.name}
             </Col>
-            <Col>   {/* Modifiers */}
+            <Col className="border">   {/* Modifiers */}
                 <Container>
                     {Object.keys(item.modifiers).map((mod) => {
                         return (
                             <Row>
-                                <Col className="text-end">{mod.charAt(0).toUpperCase() + mod.slice(1)}</Col>
-                                <Col>{item.modifiers[mod]}</Col>
+                                <Col md='6' className="text-end d-none d-md-block">{mod.charAt(0).toUpperCase() + mod.slice(1)}</Col>
+                                <Col md='6'>{item.modifiers[mod]}</Col>
                             </Row>
                         );
                     })}
@@ -79,14 +86,14 @@ const CartItem = ({ item }) => {
                 {!products.find(product => product.id === item.productId).donation && (    /* Quantity */
                     <InputGroup className="ms-auto">
                         <Button
-                            className="col"
+                            className="col-1"
                             onClick={() => {
                                 handleDecreaseCartItem(item)
                             }}
                         > - </Button>
-                        <div className="col-8 text-center">{item.quantity}</div>
+                        <div className="text-center col" >{item.quantity}</div>
                         <Button
-                            className='col'
+                            className='col-1'
                             onClick={() => {
                                 handleIncreaseCartItem(item)
                             }}
@@ -98,7 +105,7 @@ const CartItem = ({ item }) => {
                 {formatPrice(subtotalPrice)}
             </Col>
             <Col>   {/* Remove Cart Item */}
-                <Button onClick={handleRemoveFromCart}>Remove Cart Item</Button>
+                <Button onClick={handleRemoveFromCart} className="m-1">Remove Cart Item</Button>
             </Col>
         </Row>
     );

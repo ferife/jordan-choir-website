@@ -1,6 +1,3 @@
-// TODO: Set up the carousel so its contents can be modified by site admins.
-// FIXME: Carousel not showing pictures again
-
 import React, { useState } from 'react';
 import {
     Carousel,
