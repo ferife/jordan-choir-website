@@ -1,16 +1,20 @@
 {
   "files": {
-    "main.css": "/jordan-choir-website/static/css/main.18f26a87.css",
-    "main.js": "/jordan-choir-website/static/js/main.40f0a5b6.js",
+    "main.css": "/jordan-choir-website/static/css/main.a63e1a8b.css",
+    "main.js": "/jordan-choir-website/static/js/main.d47ba815.js",
     "static/js/787.c8c714d1.chunk.js": "/jordan-choir-website/static/js/787.c8c714d1.chunk.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/jordan-choir-website/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/fontawesome-webfont.eot": "/jordan-choir-website/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
     "static/media/fontawesome-webfont.ttf?v=4.7.0": "/jordan-choir-website/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/product-hoodie.jpg": "/jordan-choir-website/static/media/product-hoodie.6e3dc4f60c7c1f502a50.jpg",
     "static/media/fontawesome-webfont.woff?v=4.7.0": "/jordan-choir-website/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/jordan-choir-website/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/product-tshirt.jpg": "/jordan-choir-website/static/media/product-tshirt.b01d8f959e14d7ce5593.jpg",
+    "static/media/product-sweatshirt.jpg": "/jordan-choir-website/static/media/product-sweatshirt.348fc0c18e3cc06e4619.jpg",
+    "static/media/jordan-helmet-trans-background.png": "/jordan-choir-website/static/media/jordan-helmet-trans-background.2841794931e63407c5fd.png",
+    "static/media/product-yard-sign.jpg": "/jordan-choir-website/static/media/product-yard-sign.1ce54759cdfbeeac51ed.jpg",
     "static/media/lobster-latin-400.woff": "/jordan-choir-website/static/media/lobster-latin-400.e4473cd7170c39b44c99.woff",
     "static/media/lobster-latin-400.woff2": "/jordan-choir-website/static/media/lobster-latin-400.484e338f970ddc242388.woff2",
-    "static/media/logo.png": "/jordan-choir-website/static/media/logo.cfe4bd2f2af68fa3b627.png",
     "static/media/open-sans-latin-800.woff": "/jordan-choir-website/static/media/open-sans-latin-800.8ab0bbdd48f276f4ba56.woff",
     "static/media/open-sans-latin-700.woff": "/jordan-choir-website/static/media/open-sans-latin-700.f24f4bcef8a4a0eb6345.woff",
     "static/media/open-sans-latin-600.woff": "/jordan-choir-website/static/media/open-sans-latin-600.7e06644bbdc83069cec8.woff",
@@ -32,12 +36,12 @@
     "static/media/open-sans-latin-600italic.woff2": "/jordan-choir-website/static/media/open-sans-latin-600italic.cc4bf5b2955147801c02.woff2",
     "static/media/open-sans-latin-400italic.woff2": "/jordan-choir-website/static/media/open-sans-latin-400italic.bb915319f59c02c348a6.woff2",
     "index.html": "/jordan-choir-website/index.html",
-    "main.18f26a87.css.map": "/jordan-choir-website/static/css/main.18f26a87.css.map",
-    "main.40f0a5b6.js.map": "/jordan-choir-website/static/js/main.40f0a5b6.js.map",
+    "main.a63e1a8b.css.map": "/jordan-choir-website/static/css/main.a63e1a8b.css.map",
+    "main.d47ba815.js.map": "/jordan-choir-website/static/js/main.d47ba815.js.map",
     "787.c8c714d1.chunk.js.map": "/jordan-choir-website/static/js/787.c8c714d1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.18f26a87.css",
-    "static/js/main.40f0a5b6.js"
+    "static/css/main.a63e1a8b.css",
+    "static/js/main.d47ba815.js"
   ]
 }

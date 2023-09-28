@@ -1,56 +1,73 @@
 import { PRODUCTS } from "../../app/shared/PRODUCTS";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice } from "@reduxjs/toolkit";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { db } from "../../config/firebase";
+import { createApi, fakeBaseQuery } from "@reduxjs/toolkit/query/react"
+
+//TODO: Set up useEffect for pulling data from Firestore to App
+
+export const productsApi = createApi({
+    reducerPath: "productsApi",
+    baseQuery: fakeBaseQuery(),
+    endpoints: (builder) => ({
+        getProducts: builder.query({
+            async queryFn() {
+                try {
+                    const ref = collection(db, 'products');
+                    const querySnapshot = await getDocs(ref);
+                    let products = [];
+                    console.log('ref', ref);
+                    querySnapshot?.forEach((doc) => {
+                        products.push({ id: doc.id, ...doc.data() });
+                    });
+                    return { data: products };
+                } catch (error) {
+                    console.error(error.message);
+                    return { error: error.message };
+                }
+            },
+            providesTags: ['Blogs'],
+        }),
+        getProduct: builder.query({
+            async queryFn(id) {
+                try {
+                    const docRef = doc(db, 'products', id);
+                    const snapshot = await getDoc(docRef);
+                    return { data: snapshot.data() };
+                } catch (error) {
+                    console.error(error.message);
+                    return { error: error.message };
+                }
+            },
+            providesTags: ['Blog'],
+        }),
+    }),
+});
+
+export const {
+    useGetProductsQuery,
+    useGetProductQuery
+} = productsApi;
 
 const initialState = {
     items: PRODUCTS,
     status: null
 };
 
-// export const productsFetch = createAsyncThunk(
-//     "products/productsFetch",
-//     async () => {
-//         const response = await axios.get(
-//             "https://localhost:5000/products"
-//         ).catch((error) => {
-//             if (error.response) {
-//                 // The request was made and the server responded with a status code
-//                 console.log('response data: ', error.response.data);
-//                 console.log('response status: ', error.response.status);
-//                 console.log('response headers: ', error.response.headers);
-//             } else if (error.request) {
-//                 // The request was made but no response was received
-//                 console.log('request: ',error.request);
-//             } else {
-//                 console.log('Error', error.message);
-//             }
-//             console.log(error.config);
-//         });
-//         console.log('response data: ', response?.data);
-//         return response?.data;
-//     }
-// )
-
 const productsSlice = createSlice({
     name: 'products',
     initialState,
-    reducer: {},
-    // extraReducers: {
-    //     [productsFetch.pending]: (state, action) => {
-    //         // immer
-    //         state.status = "pending";
-    //     },
-    //     [productsFetch.fulfilled]: (state, action) => {
-    //         state.items = action.payload;
-    //         state.status = "success";
-    //     },
-    //     [productsFetch.rejected]: (state, action) => {
-    //         state.status = "rejected";
-    //     }
-    // }
+    reducers: {
+        resetState: (state, action) => {
+            state.products.items = action.payload;
+        },
+    },
 });
 
 export const productsReducer = productsSlice.reducer;
+export const {
+    resetState
+} = productsSlice.actions;
 
 export const selectAllProducts = (state) => {
     // console.log('selectAllProducts: ', state)

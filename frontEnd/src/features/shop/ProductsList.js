@@ -1,14 +1,20 @@
-import { selectAllProducts } from "./productsSlice";
+import { useGetProductsQuery } from "./productsSlice";
 import { Col, Row } from "reactstrap";
 import ProductCard from "./ProductCard";
-import { useSelector } from "react-redux";
 
 const ProductsList = () => {
-    const products = useSelector(selectAllProducts);
-    console.log('products: ', products);
+    const {
+        data,
+        isLoading,
+        isError,
+    } = useGetProductsQuery();
+
+    if (isLoading) return <div>Loading...</div>;
+    if (isError) return <p>Server error. Try again later.</p>
+    
     return (
         <Row className="ms-auto d-flex justify-content-center">
-            {products.map((product) => {
+            {data.map((product) => {
                 return (
                     <Col xs='12' sm='5' lg='3' className="m-4" key={product.id}>
                         <ProductCard product={product} />

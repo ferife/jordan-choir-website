@@ -26,15 +26,11 @@ const cartItemsSlice = createSlice({
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
         },
         removeCartItem: (state, action) => {
-            console.log('addCartItem action.payload: ', action.payload);
-            console.log('addCartItem state.cartItems: ', state.cartItems);
             const { id } = action.payload;
             state.cartItems = state.cartItems.filter(item => item.id !== id);
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
         },
         decreaseCartItemQuantity: (state, action) => {
-            console.log('addCartItem action.payload: ', action.payload);
-            console.log('addCartItem state.cartItems: ', state.cartItems);
 
             const itemIndex = state.cartItems.findIndex(
                 cartItem => cartItem.id === action.payload.id
@@ -49,8 +45,6 @@ const cartItemsSlice = createSlice({
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
         },
         increaseCartItemQuantity: (state, action) => {
-            console.log('addCartItem action.payload: ', action.payload);
-            console.log('addCartItem state.cartItems: ', state.cartItems);
 
             const itemIndex = state.cartItems.findIndex(
                 cartItem => cartItem.id === action.payload.id
@@ -60,14 +54,12 @@ const cartItemsSlice = createSlice({
             item.quantity += 1;
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
         },
-        clearCart: (state, action) => {
-            console.log('addCartItem action.payload: ', action.payload);
-            console.log('addCartItem state.cartItems: ', state.cartItems);
+        clearCart: (state) => {
             state.cartItems = [];
             console.log('Empty Cart: ', state.cartItems);
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
         },
-        getTotals: (state, action) => {
+        getTotals: (state) => {
             let { total, quantity } = state.cartItems.reduce(
                 (acc, cur) => {
                     const { price, quantity, donation } = cur;

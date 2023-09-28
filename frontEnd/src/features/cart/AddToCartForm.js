@@ -23,14 +23,16 @@ function initialMods(prod) {
     return initMods;
 };
 
-const AddToCartForm = ({ product }) => {
+const AddToCartForm = ({ product, prodId }) => {
 
     const dispatch = useDispatch();
+    
+    console.log(product);
 
     const handleSubmit = (values) => {
         const cartItem = {
             id: crypto.randomUUID(),
-            productId: parseInt(product.id),
+            productId: prodId,
             price: (product.tiers 
                 ? product.tiers.find((tier) => tier.name === values.tier).price 
                 : product.price
@@ -44,6 +46,10 @@ const AddToCartForm = ({ product }) => {
             ),
             donation: product.donation
         }
+
+        console.log('product', product);
+        console.log('cartItem', cartItem);
+
         dispatch(addCartItem(cartItem));
     };
 
