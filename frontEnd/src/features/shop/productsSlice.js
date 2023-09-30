@@ -4,8 +4,6 @@ import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { createApi, fakeBaseQuery } from "@reduxjs/toolkit/query/react"
 
-//TODO: Set up useEffect for pulling data from Firestore to App
-
 export const productsApi = createApi({
     reducerPath: "productsApi",
     baseQuery: fakeBaseQuery(),
@@ -26,7 +24,7 @@ export const productsApi = createApi({
                     return { error: error.message };
                 }
             },
-            providesTags: ['Blogs'],
+            providesTags: ['Products'],
         }),
         getProduct: builder.query({
             async queryFn(id) {
@@ -39,7 +37,7 @@ export const productsApi = createApi({
                     return { error: error.message };
                 }
             },
-            providesTags: ['Blog'],
+            providesTags: ['Product'],
         }),
     }),
 });
