@@ -1,7 +1,7 @@
 {
     "name": "jordan-choir-website",
     "version": "0.1.0",
-    "homepage": "https://ferife.github.io/jordan-choir-website",
+    "homepage": ".",
     "private": true,
     "dependencies": {
         "@paypal/react-paypal-js": "^8.1.3",
