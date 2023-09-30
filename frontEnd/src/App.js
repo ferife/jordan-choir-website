@@ -27,7 +27,7 @@ function App() {
 
 
                 <Route path='/not-found' element={<NotFoundPage />} />
-                <Route path='/*' element={<NotFoundPage />} /> {/* KEEP THIS ROUTE AT THE BOTTOM */}
+                <Route path='/*' element={<HomePage />} /> {/* KEEP THIS ROUTE AT THE BOTTOM */}
             </Routes>
             <Footer />
         </div>

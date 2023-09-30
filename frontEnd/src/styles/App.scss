@@ -1,5 +1,5 @@
-$color-primary: #3046c5;
-$color-secondary: #5637dd;
+$color-primary: #d1b786;
+$color-secondary: #a6823f;
 $color-pale: #cec8ff;
 $color-mid: #901cad;
 $color-dark: #60106b;
@@ -10,77 +10,77 @@ $body-font: "Open Sans", sans-serif;
 $header-font: "Lobster", cursive;
 
 body {
-  font-family: $body-font;
+    font-family: $body-font;
 }
 
 h1,
 h2,
 h3,
 .card-body > .card-title {
-  font-family: $header-font;
+    font-family: $header-font;
 }
 
 .card-title {
-  font-weight: 500;
-  font-size: 1.25rem;
+    font-weight: 500;
+    font-size: 1.25rem;
 }
 
 h2 {
-  color: $color-primary;
+    color: $color-secondary;
 }
 
 .card-img-overlay .card-title {
-  color: white;
-  background-color: $color-black-transparent;
+    color: white;
+    background-color: $color-black-transparent;
 }
 
 .row-content {
-  padding: 50px 0;
-  border-bottom: 1px ridge;
-  min-height: 200px;
+    padding: 50px 0;
+    border-bottom: 1px ridge;
+    min-height: 200px;
 }
 
 .site-footer {
-  background-image: linear-gradient($color-pale, white);
-  padding: 20px 0;
-  margin-top: 2rem;
+    background-image: linear-gradient($color-jordan-gold, white);
+    padding: 20px 0;
+    margin-top: 2rem;
 }
 
 .navbar-brand {
-  max-width: 4rem;
-  margin-right: 2rem;
+    max-width: 4rem;
+    margin-right: 2rem;
 }
 
 .navbar-brand img {
-  width: 100%;
-  height: 100%;
-  margin-right: 2rem;
-  max-width: 4rem;
+    width: 100%;
+    height: 100%;
+    margin-right: 2rem;
+    max-width: 4rem;
 }
 
 .navbar-dark {
-  background-color: $color-mid;
-  background-image: linear-gradient(to right, black, $color-jordan-gold);
-  margin-bottom: 2rem;
-  min-height: 8rem;
+    background-color: $color-mid;
+    background-image: linear-gradient(to right, black, $color-jordan-gold, white);
+    margin-bottom: 2rem;
+    min-height: 8rem;
 }
 
 .page-enter {
-  opacity: 0;
-  transform: translateX(-100%);
+    opacity: 0;
+    transform: translateX(-100%);
 }
 
 .page-enter-active {
-  opacity: 1;
-  transform: translateX(0%);
-  transition: 300ms ease-out;
+    opacity: 1;
+    transform: translateX(0%);
+    transition: 300ms ease-out;
 }
 
 .page-exit {
-  opacity: 1;
+    opacity: 1;
 }
 
 .page-exit-active {
-  opacity: 0;
-  transition: 300ms ease-in;
+    opacity: 0;
+    transition: 300ms ease-in;
 }

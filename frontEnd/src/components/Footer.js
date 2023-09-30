@@ -14,8 +14,8 @@ const Footer = () => {
                             <li> <Link to="/calendar">Calendar</Link> </li>
                         </ul>
                     </Col>
-                    <Col>Footer col2</Col>
-                    <Col>Footer col3</Col>
+                    {/* <Col>Footer col2</Col>
+                    <Col>Footer col3</Col> */}
                 </Row>
             </Container>
         </footer>

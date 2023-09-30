@@ -15,7 +15,7 @@ h3,
 }
 
 h2 {
-  color: #3046c5;
+  color: #a6823f;
 }
 
 .card-img-overlay .card-title {
@@ -30,7 +30,7 @@ h2 {
 }
 
 .site-footer {
-  background-image: linear-gradient(#cec8ff, white);
+  background-image: linear-gradient(#d1b786, white);
   padding: 20px 0;
   margin-top: 2rem;
 }
@@ -49,7 +49,7 @@ h2 {
 
 .navbar-dark {
   background-color: #901cad;
-  background-image: linear-gradient(to right, #5637dd, #3046c5, #60106b);
+  background-image: linear-gradient(to right, black, #d1b786, white);
   margin-bottom: 2rem;
   min-height: 8rem;
 }
