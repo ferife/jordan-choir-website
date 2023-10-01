@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Card, CardTitle, Col, Container, Row } from "reactstrap";
 import { getTotals } from "./cartItemsSlice";
 import { formatPrice } from "../../utils/formatPrice";
+import PaypalCheckout from "./PaypalCheckout";
+import PaypalCheckoutVideo from "./PaypalCheckoutVideo";
 
 const Checkout = () => {
     
@@ -26,6 +28,7 @@ const Checkout = () => {
                     </Row>
                 </Container>
             </CardTitle>
+            <PaypalCheckoutVideo />
         </Card>
     );
 };

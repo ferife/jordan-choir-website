@@ -44,7 +44,7 @@ const CartItem = ({ item }) => {
         console.log('thisItem', thisItem)
 
         return (
-            <Row className="ms-auto border-bottom border-dark d-flex align-items-center d-table-row">
+            <Row className="ms-auto border-bottom border-dark d-flex align-items-center d-table-row" key={thisItem.id}>
                 {thisItem.image && (
                     <Col className="d-none d-md-block" md='2' lg='2' >
                         <Card outline className="p-0 m-1">
