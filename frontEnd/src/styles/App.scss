@@ -60,7 +60,7 @@ h2 {
 
 .navbar-dark {
     background-color: $color-mid;
-    background-image: linear-gradient(to right, black, $color-jordan-gold, white);
+    background-image: linear-gradient(to right, black, $color-jordan-gold, $color-jordan-gold);
     margin-bottom: 2rem;
     min-height: 8rem;
 }
@@ -87,6 +87,8 @@ h2 {
 
 .frf-center-carousel-item {
     height: 100%;
+    width: 100%;
     display: block;
     margin: 0% auto;
+    object-fit: contain;
 }

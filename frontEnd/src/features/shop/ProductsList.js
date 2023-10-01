@@ -16,7 +16,7 @@ const ProductsList = () => {
         <Row className="ms-auto d-flex justify-content-center">
             {data.map((product) => {
                 return (
-                    <Col xs='12' sm='5' lg='3' className="m-4" key={product.id}>
+                    <Col xs='12' sm='4' md='5' lg='3' className="m-4" key={product.id}>
                         <ProductCard product={product} />
                     </Col>
                 );
